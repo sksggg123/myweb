@@ -25,4 +25,5 @@ public class MainController {
     public void saveContents(@RequestBody ContentsSaveRequestDto dto) {
         contentsRepository.save(dto.toEntry());
     }
+
 }
