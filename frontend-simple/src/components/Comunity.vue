@@ -1,12 +1,12 @@
 <template>
-  <div>
-    Main
-  </div>
+    <div>
+      Comunity
+    </div>
 </template>
 
 <script>
     export default {
-        name: "Main"
+        name: "Comunity"
     }
 </script>
 

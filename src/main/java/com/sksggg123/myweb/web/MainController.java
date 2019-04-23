@@ -1,12 +1,13 @@
 package com.sksggg123.myweb.web;
 
+import com.sksggg123.myweb.domain.Contents;
 import com.sksggg123.myweb.domain.ContentsRepository;
 import com.sksggg123.myweb.dto.ContentsSaveRequestDto;
 import com.sksggg123.myweb.service.MainService;
 import lombok.AllArgsConstructor;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @AllArgsConstructor // 생성자 주입방법
@@ -24,5 +25,10 @@ public class MainController {
     @RequestMapping(value = "/postContents")
     public void saveContents(@RequestBody ContentsSaveRequestDto dto) {
         contentsRepository.save(dto.toEntry());
+    }
+
+    @RequestMapping(value = "/getContents")
+    public @ResponseBody List<Contents> getContent() {
+        return contentsRepository.findAll();
     }
 }
