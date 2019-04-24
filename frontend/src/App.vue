@@ -1,23 +1,40 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <router-view/>
+    <header-area/>
+
+    <contents-area/>
+
+    <content-list/>
+
+    <footer-area/>
   </div>
 </template>
 
 <script>
+import ContentsArea from './components/Contents.vue'
+import ContentList from './components/ContentList.vue'
+
 export default {
-  name: 'App'
+  components: {
+    ContentsArea,
+    ContentList,
+  }
 }
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+  body {
+    text-align: center;
+    background-color: cornsilk;
+  }
+  input {
+    border-style: groove;
+    width: 200px;
+  }
+  button {
+    border-style: groove;
+  }
+  .shadow {
+    box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.03);
+  }
 </style>
