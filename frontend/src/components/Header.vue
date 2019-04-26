@@ -3,25 +3,26 @@
     <div class="header-container">
 
       <div class="header-center">
-        <a href="/"><h1>sksggg123</h1></a>
+        <router-link to="/todo"><i class="fas fa-list-alt fa-3x"></i></router-link>
+        <router-link to="/github"><i class="fab fa-github-square fa-3x"></i></router-link>
       </div>
 
-      <div class="header-righrt">
-        <a href="/login/github"><i class="fab fa-github-square fa-3x"></i></a>
-      </div>
+      <!--<div class="header-righrt">-->
+        <!--<a href="/login/github"><i class="fab fa-github-square fa-3x"></i></a>-->
+      <!--</div>-->
 
     </div>
   </header>
 </template>
-import
+
 <script>
     export default {
-
+      name: "HeaderArea",
     }
 </script>
 
 <style scoped>
-  h1 {
+  h3 {
     color: cornflowerblue;
     font-weight: 900;
     margin: 2.5rem 0 1.5rem;
@@ -43,6 +44,12 @@ import
 
   .header-container a {
     text-decoration:none;
+  }
+
+  .fa-list-alt {
+    color: black;
+    font-weight: 900;
+    margin: 2.5rem 0 1.5rem;
   }
 
   .fa-github-square {

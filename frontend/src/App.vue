@@ -2,9 +2,17 @@
   <div id="app">
     <header-area/>
 
-    <contents-area/>
+    <todo-items/>
 
-    <content-list/>
+    <router-view></router-view>
+
+    <!--<todo-items/>-->
+
+    <!--<todo-item-list/>-->
+
+    <!--<contents-area/>-->
+
+    <!--<content-list/>-->
 
     <footer-area/>
   </div>
@@ -13,11 +21,15 @@
 <script>
 import ContentsArea from './components/Contents.vue'
 import ContentList from './components/ContentList.vue'
+import TodoItems from './components/TodoItems.vue'
+import TodoItemList from './components/TodoItemList.vue'
 
 export default {
   components: {
     ContentsArea,
     ContentList,
+    TodoItems,
+    TodoItemList,
   }
 }
 </script>
