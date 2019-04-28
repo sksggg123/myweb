@@ -20,11 +20,7 @@
     methods: {
       addContent: function() {
         if(this.newInputItem !== '') {
-          var obj = {completed: false, item: this.newInputItem};
-          // local storage save
-          // javascript 객체를 string type으로 변환해주는 것 -> JSON.stringify()
-          localStorage.setItem(this.newInputItem, JSON.stringify(obj));
-          // input box init method
+          this.$emit('addTodoItem', this.newInputItem);
           this.clearInput();
         }
       },

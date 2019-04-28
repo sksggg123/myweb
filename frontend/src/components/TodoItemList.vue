@@ -6,7 +6,7 @@
 
       <!--2 step remove event-->
       <!--v-for는 내장 index가 있다.-->
-      <li v-for="(items, index) in contentItem" v-bind:key="contentItem" class="shadow">
+      <li v-for="(items, index) in propsdata" v-bind:key="contentItem" class="shadow">
         <i class="checkBtn fas fa-check-circle"
            v-bind:class="{checkBtnCompleted: items.completed}"
            v-on:click="toggleComplete(items, index)">
@@ -24,48 +24,20 @@
 </template>
 
 <script>
-  import { getStorageJSON } from '../api/index.js';
-
   export default {
-    data: function() {
-      return {
-        contentItem: [],
-      }
-    },
+    props: ['propsdata'],
     methods: {
       // remove content
       removeItem: function (items, index) {
-        localStorage.removeItem(items.item);
-        // 기존배열을 변경해서 화면에 반영해 주는 역할 => splice
-        this.contentItem.splice(index, 1);
+        this.$emit('removeItemForTodoItemComponent', items, index);
       },
-
       toggleComplete: function(items, index) {
-        console.log(items);
         items.completed = !items.completed;
         // localStorage 업데이트 순서 -> 기존삭제 -> 신규로 넣기
         localStorage.removeItem(items.item);
         localStorage.setItem(items.item, JSON.stringify(items));
       },
-
-      // json parsing url landing function
-      landing: function (url) {
-        window.location.href = url;
-      },
-
     },
-    // component instance가 생성되자 마자 실행되는 lifecycle hook.
-    created: function () {
-      // localStorage data 유무 확인
-      if(localStorage.length > 0) {
-        for(var i=0; i<localStorage.length; i++) {
-          if(localStorage.key(i) !== 'loglevel:webpack-dev-server')
-          // Contents.vue 컴포넌트에서 localStorage에서 JSON형식으로 input 됨.
-            this.contentItem.push(JSON.parse(localStorage.getItem(localStorage.key(i))));
-          // this.contentItem.push(localStorage.key(i));
-        }
-      }
-    }
   }
 </script>
 
