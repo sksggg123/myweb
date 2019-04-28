@@ -25,7 +25,7 @@
       },
       methods: {
         clearItems: function () {
-          localStorage.clear();
+          this.$emit('clearAll');
         }
       },
     }

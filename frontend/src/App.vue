@@ -12,13 +12,13 @@
 
     <todo-item-list v-bind:propsdata="contentItem"
                     v-on:removeItemForTodoItemComponent="removeItem"
-    />
+                    v-on:toggleComplete="toggleCompleted"/>
 
     <!--<contents-area/>-->
 
     <!--<content-list/>-->
 
-    <footer-area/>
+    <footer-area v-on:clearAll="clearAllItems"/>
   </div>
 </template>
 
@@ -47,6 +47,16 @@ export default {
       localStorage.removeItem(items.item);
       // 기존배열을 변경해서 화면에 반영해 주는 역할 => splice
       this.contentItem.splice(index, 1);
+    },
+    toggleCompleted: function (items, index) {
+      this.contentItem[index].completed = !items.completed;
+      // localStorage 업데이트 순서 -> 기존삭제 -> 신규로 넣기
+      localStorage.removeItem(items.item);
+      localStorage.setItem(items.item, JSON.stringify(items));
+    },
+    clearAllItems: function () {
+      localStorage.clear();
+      this.contentItem = [];
     },
   },
   created: function () {

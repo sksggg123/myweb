@@ -32,10 +32,12 @@
         this.$emit('removeItemForTodoItemComponent', items, index);
       },
       toggleComplete: function(items, index) {
-        items.completed = !items.completed;
-        // localStorage 업데이트 순서 -> 기존삭제 -> 신규로 넣기
-        localStorage.removeItem(items.item);
-        localStorage.setItem(items.item, JSON.stringify(items));
+        this.$emit('toggleComplete', items, index);
+
+        // items.completed = !items.completed;
+        // // localStorage 업데이트 순서 -> 기존삭제 -> 신규로 넣기
+        // localStorage.removeItem(items.item);
+        // localStorage.setItem(items.item, JSON.stringify(items));
       },
     },
   }
