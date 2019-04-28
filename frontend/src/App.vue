@@ -2,21 +2,12 @@
 <template>
   <div id="app">
     <header-area/>
-
-    <!--<todo-items/>-->
-
-    <!--<router-view></router-view>-->
-
     <!-- v-on:addTodoItem은 하위 컴포넌트 TodoItem에서 this.$emit으로 이벤트 발동 시킨것을 잡고 addOneItem 메서드를 실행시키는 것-->
     <todo-items v-on:addTodoItem="addOneItem"/>
 
     <todo-item-list v-bind:propsdata="contentItem"
                     v-on:removeItemForTodoItemComponent="removeItem"
                     v-on:toggleComplete="toggleCompleted"/>
-
-    <!--<contents-area/>-->
-
-    <!--<content-list/>-->
 
     <footer-area v-on:clearAll="clearAllItems"/>
   </div>
@@ -71,10 +62,10 @@ export default {
     }
   },
   components: {
-    ContentsArea,
-    ContentList,
-    TodoItems,
-    TodoItemList,
+    ContentsArea: ContentsArea,
+    ContentList: ContentList,
+    TodoItems: TodoItems,
+    TodoItemList: TodoItemList,
   }
 }
 </script>

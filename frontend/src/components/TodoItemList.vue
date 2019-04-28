@@ -1,24 +1,19 @@
 <template>
   <div>
-    <ul>
-      <!--1 step pring list-->
-      <!--<li v-for="item in contentItem" v-bind:key="contentItem" class="shadow">-->
 
-      <!--2 step remove event-->
-      <!--v-for는 내장 index가 있다.-->
-      <li v-for="(items, index) in propsdata" v-bind:key="contentItem" class="shadow">
+    <transition-group name="list" tag="ul">
+      <li v-for="(items, index) in propsdata" v-bind:key="items" class="shadow">
         <i class="checkBtn fas fa-check-circle"
            v-bind:class="{checkBtnCompleted: items.completed}"
            v-on:click="toggleComplete(items, index)">
         </i>
-
         <!-- v-bind를 통해 속성을 boolean값으로 동적 활성화 가능 -->
         <span v-bind:class="{textCompleted: items.completed}">{{ items.item }}</span>
         <span class="removeBtn" v-on:click="removeItem(items, index)">
             <i class="fas fa-trash"></i>
           </span>
       </li>
-    </ul>
+    </transition-group>
 
   </div>
 </template>
@@ -33,11 +28,6 @@
       },
       toggleComplete: function(items, index) {
         this.$emit('toggleComplete', items, index);
-
-        // items.completed = !items.completed;
-        // // localStorage 업데이트 순서 -> 기존삭제 -> 신규로 넣기
-        // localStorage.removeItem(items.item);
-        // localStorage.setItem(items.item, JSON.stringify(items));
       },
     },
   }
@@ -75,5 +65,14 @@
   .textCompleted {
     text-decoration: line-through;
     color: aliceblue;
+  }
+
+  /* 리스트 아이템 트래지션 효과 */
+  .list-enter-active, .list-leave-active {
+    transition: all 1s;
+  }
+  .list-enter, .list-leave-to {
+    opacity: 0;
+    transform: translateY(30px);
   }
 </style>
