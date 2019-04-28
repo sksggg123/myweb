@@ -1,6 +1,5 @@
 <template>
   <footer>
-    <!--<h3>Footer Area</h3>-->
     <div>
       <div class="clearAllContainer">
         <span class="clearAllBtn" v-on:click="clearItems">
@@ -24,8 +23,8 @@
         }
       },
       methods: {
-        clearItems: function () {
-          this.$emit('clearAll');
+        clearItems () {
+          this.$store.commit('clearAllItems');
         }
       },
     }

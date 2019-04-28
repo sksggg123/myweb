@@ -5,6 +5,7 @@ import App from './App'
 import router from './router'
 import HeaderArea from './components/Header.vue'
 import FooterArea from './components/Footer.vue'
+import { store } from './store/store.js'
 
 Vue.config.productionTip = false
 
@@ -15,6 +16,8 @@ Vue.component('footer-area', FooterArea);
 new Vue({
   el: '#app',
   router,
+  // Vuex -> store 선언
+  store,
   components: { App },
   template: '<App/>'
 })

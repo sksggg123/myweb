@@ -13,20 +13,20 @@
   import { getStorageJSON } from '../api/index.js';
 
     export default {
-      data: function() {
+      data() {
         return {
           urlList: [],
         }
       },
       methods: {
         // json parsing url landing function
-        landing: function (url) {
+        landing (url) {
           window.location.href = url;
         },
 
       },
       // component instance가 생성되자 마자 실행되는 lifecycle hook.
-      created: function () {
+      created () {
         // axios로 정의한 함수 호출하여 통신
         getStorageJSON()
           .then(response =>

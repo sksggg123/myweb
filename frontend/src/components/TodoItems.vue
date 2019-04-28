@@ -35,28 +35,29 @@
   import Modal from './common/Modal.vue';
 
   export default {
-    data: function() {
+    data() {
       return {
         newInputItem: "",
         showModal: false,
       }
     },
     methods: {
-      addContent: function() {
+      addContent() {
         if(this.newInputItem !== '') {
-          this.$emit('addTodoItem', this.newInputItem);
+          // this.$emit('addTodoItem', this.newInputItem);
+          this.$store.commit('addOneItem', this.newInputItem);
           this.clearInput();
         } else {
           this.showModal = !this.showModal;
         }
       },
-      clearInput: function() {
+      clearInput() {
         // input box init
         this.newInputItem = '';
       },
     },
     components: {
-      Modal: Modal,
+      Modal,
     }
   }
 </script>

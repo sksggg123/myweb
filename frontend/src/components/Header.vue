@@ -7,10 +7,6 @@
         <router-link to="/github"><i class="fab fa-github-square fa-3x"></i></router-link>
       </div>
 
-      <!--<div class="header-righrt">-->
-        <!--<a href="/login/github"><i class="fab fa-github-square fa-3x"></i></a>-->
-      <!--</div>-->
-
     </div>
   </header>
 </template>

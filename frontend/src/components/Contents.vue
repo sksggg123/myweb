@@ -12,13 +12,13 @@
 
 <script>
     export default {
-      data: function() {
+      data() {
         return {
           newInputItem: "",
         }
       },
       methods: {
-        addContent: function() {
+        addContent() {
           if(this.newInputItem !== '') {
             var obj = {completed: false, item: this.newInputItem};
             // local storage save
@@ -28,7 +28,7 @@
             this.clearInput();
           }
         },
-        clearInput: function() {
+        clearInput() {
           // input box init
           this.newInputItem = '';
         }
