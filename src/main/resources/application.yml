@@ -2,3 +2,25 @@ spring:
   h2:
     console:
       enabled: true
+
+  security:
+    oauth2:
+      client:
+        clientId: ccb8598d9316780c7b0f
+        clientSecret: 58e269b2d9a5a6ab561d6631877c782a8b33d91e
+        accessTokenUri: https://github.com/login/oauth/access_token
+        userAuthorizationUri: https://github.com/login/oauth/authorize
+        token-name: oauth_token
+        authenticationScheme: query
+        clientAuthenticationScheme: form
+        scope: user
+        resource:
+          preferTokenInfo: false
+          userInfoUri: https://api.github.com/user
+      github:
+        clientId: d3e47fc2ddd966fa4352
+        clientSecret: 3bc0f6b8332f93076354c2a5bada2f5a05aea60d
+        redirectUriTemplate: "{baseUrl}/oauth2/callback/{registrationId}"
+        scope:
+          - user:email
+          - read:user

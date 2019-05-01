@@ -1,8 +1,9 @@
 <template>
   <div id="app">
     <header-area/>
-    <todo-items/>
-    <todo-item-list/>
+    <ContentsArea/>
+    <ContentList/>
+    <!--<router-view/>-->
     <footer-area/>
   </div>
 </template>
@@ -10,15 +11,11 @@
 <script>
 import ContentsArea from './components/Contents.vue'
 import ContentList from './components/ContentList.vue'
-import TodoItems from './components/TodoItems.vue'
-import TodoItemList from './components/TodoItemList.vue'
 
 export default {
   components: {
     ContentsArea,
     ContentList,
-    TodoItems,
-    TodoItemList,
   }
 }
 </script>

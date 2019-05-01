@@ -1,27 +1,39 @@
 <template>
     <div>
+      <span>
+        <a v-on:click.prevent="doLogin">Github Login</a>
+      </span>
       <ul>
         <li v-for="(item, index) in urlList" class="shadow">
           <i class="checkBtn fas fa-check-circle"></i>
           <a v-on:click="landing(item.url)">{{ item.description }}</a>
         </li>
       </ul>
+      <ul v-for="login in loginVO">
+          {{ login.id }} | {{ login.name }}
+      </ul>
     </div>
 </template>
 
 <script>
   import { getStorageJSON } from '../api/index.js';
+  import { doGithubLogin } from '../api/index.js';
 
     export default {
       data() {
         return {
           urlList: [],
+          loginVO: [],
         }
       },
       methods: {
         // json parsing url landing function
         landing (url) {
           window.location.href = url;
+        },
+
+        doLogin() {
+          window.location.href = 'http://localhost:8080/sessions/github/callback';
         },
 
       },
@@ -34,8 +46,8 @@
           )
           .catch(response =>
             console.log(response)
-          )
-      }
+          );
+      },
     }
 </script>
 

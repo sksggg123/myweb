@@ -8,7 +8,8 @@ import lombok.Setter;
 @Setter
 @Getter
 @NoArgsConstructor
-public class ContentsSaveRequestDto {
+public class
+ContentsSaveRequestDto {
 
     private String link;
     private String description;

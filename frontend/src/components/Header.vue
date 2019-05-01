@@ -3,7 +3,7 @@
     <div class="header-container">
 
       <div class="header-center">
-        <router-link to="/todo"><i class="fas fa-list-alt fa-3x"></i></router-link>
+        <!--<router-link to="/todo"><i class="fas fa-list-alt fa-3x"></i></router-link>-->
         <router-link to="/github"><i class="fab fa-github-square fa-3x"></i></router-link>
       </div>
 
@@ -13,7 +13,7 @@
 
 <script>
     export default {
-      name: "HeaderArea",
+
     }
 </script>
 
